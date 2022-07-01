@@ -3,6 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 import { useAppDispatch, useExampleSelector } from './store';
 import { incrementExampleValue, deleteExampleState } from './store/example';
+import { Button } from '@mui/material';
 
 function App() {
   const appDispatch = useAppDispatch();
@@ -18,39 +19,28 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header flex flex-col gap-4">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={incrementCount}>
+        <div className="flex gap-4">
+          <Button variant="contained" onClick={incrementCount}>
             count is: {exampleState.value ?? 'not-set'}
-          </button>
-          <button type="button" onClick={removeCount}>
+          </Button>
+          <Button variant="outlined" onClick={removeCount}>
             remove local store
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+          </Button>
+        </div>
+        <div
+          p="x-10 y-5"
+          bg="red-500"
+          className='flex flex-col gap-2 rounded-full'
+        >
+          <h1 className="font-bold text-7xl">Unocss Example</h1>
+          <div className="flex flex-row">
+            <p text="lg green-500">With Icon Support</p>
+            <div className="i-bx-alarm-exclamation w-10 h-10" />
+          </div>
+        </div>
       </header>
     </div>
   )
