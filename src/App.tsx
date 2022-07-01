@@ -2,6 +2,8 @@ import logo from './logo.svg'
 import { useAppDispatch, useExampleSelector } from './store';
 import { incrementExampleValue, deleteExampleState } from './store/example';
 import { Button } from '@mui/material';
+import LeftRight from './components/posittioning/left-right';
+import Right from './components/posittioning/right';
 
 function App() {
   const appDispatch = useAppDispatch();
@@ -16,7 +18,7 @@ function App() {
   }
 
   return (
-    <div className="w-screen h-screen p-20 flex flex-col items-center">
+    <div className="w-screen h-screen p-0 sm:p-10 md:p-20 flex flex-col items-center">
       <header className="flex flex-col gap-4">
         <img src={logo} className="w-[100px] sm:w-[200px]" alt="logo" />
         <p>Hello Vite + React!</p>
@@ -39,6 +41,11 @@ function App() {
             <div className="i-bx-alarm-exclamation w-10 h-10" />
           </div>
         </div>
+        <LeftRight
+          left={<span>Left</span>}
+          right={<span>Right</span>}
+        />
+        <Right right={<span>Just on the right</span>} />
       </header>
     </div>
   )
