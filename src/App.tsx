@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import logo from './logo.svg'
-import './App.css'
 import { useAppDispatch, useExampleSelector } from './store';
 import { incrementExampleValue, deleteExampleState } from './store/example';
 import { Button } from '@mui/material';
@@ -18,9 +16,9 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header flex flex-col gap-4">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="w-screen h-screen p-20 flex flex-col items-center">
+      <header className="flex flex-col gap-4">
+        <img src={logo} className="w-[100px] sm:w-[200px]" alt="logo" />
         <p>Hello Vite + React!</p>
         <div className="flex gap-4">
           <Button variant="contained" onClick={incrementCount}>
