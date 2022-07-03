@@ -11,6 +11,7 @@ import "./index.css";
 import Main from "./routes/main";
 import MainIndex from "./routes/main/index";
 import { createTheme, ThemeProvider } from "@mui/material";
+import NotificationConfirm from "./routes/notification";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
@@ -38,14 +39,7 @@ root.render(
     <ThemeProvider theme={esuTheme}>
       <Provider store={store}>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<App />}>
-              <Route path="login" element={<Login />} />
-              <Route path="app" element={<Main />}>
-                <Route index element={<MainIndex />}></Route>
-              </Route>
-            </Route>
-          </Routes>
+          <App />
         </BrowserRouter>
       </Provider>
     </ThemeProvider>

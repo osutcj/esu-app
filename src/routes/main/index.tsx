@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 const MainIndex = () => {
-  return <div>MainIndex</div>;
+  return <div>MainIndexaa</div>;
 };
 
 export default MainIndex;

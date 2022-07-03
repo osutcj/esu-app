@@ -11,6 +11,7 @@ import AppleIcon from "@mui/icons-material/Apple";
 import { auth } from "../firebase";
 // import styled from 'styled-components';
 import esulogo from "../static/ESULogo.svg";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   // console.log("asd");
@@ -21,9 +22,13 @@ const Login = () => {
 
   const [user, loading, error] = useAuthState(auth);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (!loading) {
-      console.log(user);
+      if (user?.uid) {
+        navigate("/notifications");
+      }
     }
   }, [user, loading]);
 
@@ -43,9 +48,9 @@ const Login = () => {
           size="large"
           className="!bg-[#ea4335]"
         >
-          Sing in with Google
+          Sign in with Google
         </Button>
-        <Button
+        {/* <Button
           variant="contained"
           startIcon={<AppleIcon />}
           onClick={() => signInWithApple()}
@@ -53,7 +58,7 @@ const Login = () => {
           className="!bg-[#050708]"
         >
           Sing in with Apple
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
