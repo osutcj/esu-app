@@ -12,6 +12,9 @@ import Main from "./routes/main";
 import MainIndex from "./routes/main/index";
 import { createTheme, ThemeProvider } from "@mui/material";
 import NotificationConfirm from "./routes/notification";
+//@ts-ignore
+import { registerSW } from "virtual:pwa-register";
+registerSW({ immediate: true });
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
