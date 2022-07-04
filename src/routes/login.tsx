@@ -46,7 +46,7 @@ const Login = () => {
           startIcon={<GoogleIcon />}
           onClick={() => signInWithGoogle()}
           size="large"
-          className="!bg-[#ea4335]"
+          className="!bg-[#ea4335] !text-white"
         >
           Sign in with Google
         </Button>

@@ -34,6 +34,7 @@ specifiers:
   typescript: ^4.6.3
   unocss: ^0.42.0
   vite: ^2.9.9
+  vite-plugin-mkcert: ^1.7.2
   vite-plugin-pwa: ^0.12.2
   workbox-background-sync: ^6.5.3
   workbox-broadcast-update: ^6.5.3
@@ -66,6 +67,7 @@ dependencies:
   react-redux: 8.0.2_fzknh3pugl53jp7xsetxkg5ani
   react-router-dom: 6.3.0_biqbaboplfbrettd7655fr4n2y
   styled-components: 5.3.5_7i5myeigehqah43i5u7wbekgba
+  vite-plugin-mkcert: registry.npmjs.org/vite-plugin-mkcert/1.7.2
   vite-plugin-pwa: registry.npmjs.org/vite-plugin-pwa/0.12.2_vite@2.9.13
   workbox-background-sync: registry.npmjs.org/workbox-background-sync/6.5.3
   workbox-broadcast-update: registry.npmjs.org/workbox-broadcast-update/6.5.3
@@ -4418,6 +4420,140 @@ packages:
       fastq: registry.npmjs.org/fastq/1.13.0
     dev: false
 
+  registry.npmjs.org/@octokit/auth-token/2.5.0:
+    resolution: {integrity: sha512-r5FVUJCOLl19AxiuZD2VRZ/ORjp/4IN98Of6YJoJOkY75CIBuYfmiNHGrDwXr+aLGG55igl9QrxX3hbiXlLb+g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/auth-token/-/auth-token-2.5.0.tgz}
+    name: '@octokit/auth-token'
+    version: 2.5.0
+    dependencies:
+      '@octokit/types': registry.npmjs.org/@octokit/types/6.38.2
+    dev: false
+
+  registry.npmjs.org/@octokit/core/3.6.0:
+    resolution: {integrity: sha512-7RKRKuA4xTjMhY+eG3jthb3hlZCsOwg3rztWh75Xc+ShDWOfDDATWbeZpAHBNRpm4Tv9WgBMOy1zEJYXG6NJ7Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/core/-/core-3.6.0.tgz}
+    name: '@octokit/core'
+    version: 3.6.0
+    dependencies:
+      '@octokit/auth-token': registry.npmjs.org/@octokit/auth-token/2.5.0
+      '@octokit/graphql': registry.npmjs.org/@octokit/graphql/4.8.0
+      '@octokit/request': registry.npmjs.org/@octokit/request/5.6.3
+      '@octokit/request-error': registry.npmjs.org/@octokit/request-error/2.1.0
+      '@octokit/types': registry.npmjs.org/@octokit/types/6.38.2
+      before-after-hook: registry.npmjs.org/before-after-hook/2.2.2
+      universal-user-agent: registry.npmjs.org/universal-user-agent/6.0.0
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  registry.npmjs.org/@octokit/endpoint/6.0.12:
+    resolution: {integrity: sha512-lF3puPwkQWGfkMClXb4k/eUT/nZKQfxinRWJrdZaJO85Dqwo/G0yOC434Jr2ojwafWJMYqFGFa5ms4jJUgujdA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/endpoint/-/endpoint-6.0.12.tgz}
+    name: '@octokit/endpoint'
+    version: 6.0.12
+    dependencies:
+      '@octokit/types': registry.npmjs.org/@octokit/types/6.38.2
+      is-plain-object: registry.npmjs.org/is-plain-object/5.0.0
+      universal-user-agent: registry.npmjs.org/universal-user-agent/6.0.0
+    dev: false
+
+  registry.npmjs.org/@octokit/graphql/4.8.0:
+    resolution: {integrity: sha512-0gv+qLSBLKF0z8TKaSKTsS39scVKF9dbMxJpj3U0vC7wjNWFuIpL/z76Qe2fiuCbDRcJSavkXsVtMS6/dtQQsg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/graphql/-/graphql-4.8.0.tgz}
+    name: '@octokit/graphql'
+    version: 4.8.0
+    dependencies:
+      '@octokit/request': registry.npmjs.org/@octokit/request/5.6.3
+      '@octokit/types': registry.npmjs.org/@octokit/types/6.38.2
+      universal-user-agent: registry.npmjs.org/universal-user-agent/6.0.0
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  registry.npmjs.org/@octokit/openapi-types/12.6.1:
+    resolution: {integrity: sha512-zirGmxkSQuZIQYsOLtCxNoKi7ByKLwGhrGhHz6YUI7h/c8xOES9bEoHOeq4z81uNf2AGAqNfPW9i3GOrpgKoJQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-12.6.1.tgz}
+    name: '@octokit/openapi-types'
+    version: 12.6.1
+    dev: false
+
+  registry.npmjs.org/@octokit/plugin-paginate-rest/2.21.1_@octokit+core@3.6.0:
+    resolution: {integrity: sha512-NVNTK63yoTFp07GqISWK+uDfGH1CAPhQXS7LzsJBvaK5W+UlvG549pLZC55FK0FqANVl6q/9ra3SR5c97xF/sw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.21.1.tgz}
+    id: registry.npmjs.org/@octokit/plugin-paginate-rest/2.21.1
+    name: '@octokit/plugin-paginate-rest'
+    version: 2.21.1
+    peerDependencies:
+      '@octokit/core': '>=2'
+    dependencies:
+      '@octokit/core': registry.npmjs.org/@octokit/core/3.6.0
+      '@octokit/types': registry.npmjs.org/@octokit/types/6.38.2
+    dev: false
+
+  registry.npmjs.org/@octokit/plugin-request-log/1.0.4_@octokit+core@3.6.0:
+    resolution: {integrity: sha512-mLUsMkgP7K/cnFEw07kWqXGF5LKrOkD+lhCrKvPHXWDywAwuDUeDwWBpc69XK3pNX0uKiVt8g5z96PJ6z9xCFA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/plugin-request-log/-/plugin-request-log-1.0.4.tgz}
+    id: registry.npmjs.org/@octokit/plugin-request-log/1.0.4
+    name: '@octokit/plugin-request-log'
+    version: 1.0.4
+    peerDependencies:
+      '@octokit/core': '>=3'
+    dependencies:
+      '@octokit/core': registry.npmjs.org/@octokit/core/3.6.0
+    dev: false
+
+  registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/5.16.1_@octokit+core@3.6.0:
+    resolution: {integrity: sha512-RMHD3aJZvOpjR2fGzD2an6eU7LG8MsknhUHvP+wRUnKdbt7eDdhTMLQsZ4xsHZcLNsxPO/K4DDIZPhI2s571Ag==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.16.1.tgz}
+    id: registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/5.16.1
+    name: '@octokit/plugin-rest-endpoint-methods'
+    version: 5.16.1
+    peerDependencies:
+      '@octokit/core': '>=3'
+    dependencies:
+      '@octokit/core': registry.npmjs.org/@octokit/core/3.6.0
+      '@octokit/types': registry.npmjs.org/@octokit/types/6.38.2
+      deprecation: registry.npmjs.org/deprecation/2.3.1
+    dev: false
+
+  registry.npmjs.org/@octokit/request-error/2.1.0:
+    resolution: {integrity: sha512-1VIvgXxs9WHSjicsRwq8PlR2LR2x6DwsJAaFgzdi0JfJoGSO8mYI/cHJQ+9FbN21aa+DrgNLnwObmyeSC8Rmpg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/request-error/-/request-error-2.1.0.tgz}
+    name: '@octokit/request-error'
+    version: 2.1.0
+    dependencies:
+      '@octokit/types': registry.npmjs.org/@octokit/types/6.38.2
+      deprecation: registry.npmjs.org/deprecation/2.3.1
+      once: registry.npmjs.org/once/1.4.0
+    dev: false
+
+  registry.npmjs.org/@octokit/request/5.6.3:
+    resolution: {integrity: sha512-bFJl0I1KVc9jYTe9tdGGpAMPy32dLBXXo1dS/YwSCTL/2nd9XeHsY616RE3HPXDVk+a+dBuzyz5YdlXwcDTr2A==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/request/-/request-5.6.3.tgz}
+    name: '@octokit/request'
+    version: 5.6.3
+    dependencies:
+      '@octokit/endpoint': registry.npmjs.org/@octokit/endpoint/6.0.12
+      '@octokit/request-error': registry.npmjs.org/@octokit/request-error/2.1.0
+      '@octokit/types': registry.npmjs.org/@octokit/types/6.38.2
+      is-plain-object: registry.npmjs.org/is-plain-object/5.0.0
+      node-fetch: registry.npmjs.org/node-fetch/2.6.7
+      universal-user-agent: registry.npmjs.org/universal-user-agent/6.0.0
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  registry.npmjs.org/@octokit/rest/18.12.0:
+    resolution: {integrity: sha512-gDPiOHlyGavxr72y0guQEhLsemgVjwRePayJ+FcKc2SJqKUbxbkvf5kAZEWA/MKvsfYlQAMVzNJE3ezQcxMJ2Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/rest/-/rest-18.12.0.tgz}
+    name: '@octokit/rest'
+    version: 18.12.0
+    dependencies:
+      '@octokit/core': registry.npmjs.org/@octokit/core/3.6.0
+      '@octokit/plugin-paginate-rest': registry.npmjs.org/@octokit/plugin-paginate-rest/2.21.1_@octokit+core@3.6.0
+      '@octokit/plugin-request-log': registry.npmjs.org/@octokit/plugin-request-log/1.0.4_@octokit+core@3.6.0
+      '@octokit/plugin-rest-endpoint-methods': registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/5.16.1_@octokit+core@3.6.0
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  registry.npmjs.org/@octokit/types/6.38.2:
+    resolution: {integrity: sha512-McFegRKQ1qaMSnDt8ScJzv26IFR1zhXveYaqx8wF7QEgiy4GHMrnX4xbP+Yl+kAr12DCplL3WJq4xkeD1VMfmw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@octokit/types/-/types-6.38.2.tgz}
+    name: '@octokit/types'
+    version: 6.38.2
+    dependencies:
+      '@octokit/openapi-types': registry.npmjs.org/@octokit/openapi-types/12.6.1
+    dev: false
+
   registry.npmjs.org/@rollup/plugin-babel/5.3.1_fb3qe53zzddvqjqqltveoanfhe:
     resolution: {integrity: sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz}
     id: registry.npmjs.org/@rollup/plugin-babel/5.3.1
@@ -4570,6 +4706,17 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: false
 
+  registry.npmjs.org/axios/0.21.4_debug@4.3.4:
+    resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/axios/-/axios-0.21.4.tgz}
+    id: registry.npmjs.org/axios/0.21.4
+    name: axios
+    version: 0.21.4
+    dependencies:
+      follow-redirects: registry.npmjs.org/follow-redirects/1.15.1_debug@4.3.4
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   registry.npmjs.org/babel-plugin-dynamic-import-node/2.3.3:
     resolution: {integrity: sha512-jZVI+s9Zg3IqA/kdi0i6UDCybUI3aSBLnglhYbSSjKlV7yF1F/5LWv8MakQmvYpnbJDS6fcBL2KzHSxNCMtWSQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.3.tgz}
     name: babel-plugin-dynamic-import-node
@@ -4627,6 +4774,12 @@ packages:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz}
     name: balanced-match
     version: 1.0.2
+    dev: false
+
+  registry.npmjs.org/before-after-hook/2.2.2:
+    resolution: {integrity: sha512-3pZEU3NT5BFUo/AD5ERPWOgQOCZITni6iavr5AUw5AUwQjMlI0kzu5btnyD39AF0gUEsDPwJT+oY1ORBJijPjQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/before-after-hook/-/before-after-hook-2.2.2.tgz}
+    name: before-after-hook
+    version: 2.2.2
     dev: false
 
   registry.npmjs.org/brace-expansion/1.1.11:
@@ -4838,6 +4991,12 @@ packages:
     dependencies:
       has-property-descriptors: registry.npmjs.org/has-property-descriptors/1.0.0
       object-keys: registry.npmjs.org/object-keys/1.1.1
+    dev: false
+
+  registry.npmjs.org/deprecation/2.3.1:
+    resolution: {integrity: sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/deprecation/-/deprecation-2.3.1.tgz}
+    name: deprecation
+    version: 2.3.1
     dev: false
 
   registry.npmjs.org/ejs/3.1.8:
@@ -5098,6 +5257,36 @@ packages:
     requiresBuild: true
     optional: true
 
+  registry.npmjs.org/esbuild/0.14.48:
+    resolution: {integrity: sha512-w6N1Yn5MtqK2U1/WZTX9ZqUVb8IOLZkZ5AdHkT6x3cHDMVsYWC7WPdiLmx19w3i4Rwzy5LqsEMtVihG3e4rFzA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/esbuild/-/esbuild-0.14.48.tgz}
+    name: esbuild
+    version: 0.14.48
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      esbuild-android-64: registry.npmjs.org/esbuild-android-64/0.14.48
+      esbuild-android-arm64: registry.npmjs.org/esbuild-android-arm64/0.14.48
+      esbuild-darwin-64: registry.npmjs.org/esbuild-darwin-64/0.14.48
+      esbuild-darwin-arm64: registry.npmjs.org/esbuild-darwin-arm64/0.14.48
+      esbuild-freebsd-64: registry.npmjs.org/esbuild-freebsd-64/0.14.48
+      esbuild-freebsd-arm64: registry.npmjs.org/esbuild-freebsd-arm64/0.14.48
+      esbuild-linux-32: registry.npmjs.org/esbuild-linux-32/0.14.48
+      esbuild-linux-64: registry.npmjs.org/esbuild-linux-64/0.14.48
+      esbuild-linux-arm: registry.npmjs.org/esbuild-linux-arm/0.14.48
+      esbuild-linux-arm64: registry.npmjs.org/esbuild-linux-arm64/0.14.48
+      esbuild-linux-mips64le: registry.npmjs.org/esbuild-linux-mips64le/0.14.48
+      esbuild-linux-ppc64le: registry.npmjs.org/esbuild-linux-ppc64le/0.14.48
+      esbuild-linux-riscv64: registry.npmjs.org/esbuild-linux-riscv64/0.14.48
+      esbuild-linux-s390x: registry.npmjs.org/esbuild-linux-s390x/0.14.48
+      esbuild-netbsd-64: registry.npmjs.org/esbuild-netbsd-64/0.14.48
+      esbuild-openbsd-64: registry.npmjs.org/esbuild-openbsd-64/0.14.48
+      esbuild-sunos-64: registry.npmjs.org/esbuild-sunos-64/0.14.48
+      esbuild-windows-32: registry.npmjs.org/esbuild-windows-32/0.14.48
+      esbuild-windows-64: registry.npmjs.org/esbuild-windows-64/0.14.48
+      esbuild-windows-arm64: registry.npmjs.org/esbuild-windows-arm64/0.14.48
+    dev: false
+
   registry.npmjs.org/escalade/3.1.1:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz}
     name: escalade
@@ -5173,6 +5362,21 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       to-regex-range: registry.npmjs.org/to-regex-range/5.0.1
+    dev: false
+
+  registry.npmjs.org/follow-redirects/1.15.1_debug@4.3.4:
+    resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.1.tgz}
+    id: registry.npmjs.org/follow-redirects/1.15.1
+    name: follow-redirects
+    version: 1.15.1
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dependencies:
+      debug: registry.npmjs.org/debug/4.3.4
     dev: false
 
   registry.npmjs.org/fs-extra/9.1.0:
@@ -5479,6 +5683,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  registry.npmjs.org/is-plain-object/5.0.0:
+    resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/is-plain-object/-/is-plain-object-5.0.0.tgz}
+    name: is-plain-object
+    version: 5.0.0
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   registry.npmjs.org/is-regex/1.1.4:
     resolution: {integrity: sha512-kvRdxDsxZjhzUX07ZnLydzS1TU/TJlTUHHY4YLL87e37oUA49DfkLqgy+VjFocowy29cKvcSiu+kIv728jTTVg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/is-regex/-/is-regex-1.1.4.tgz}
     name: is-regex
@@ -5712,6 +5923,28 @@ packages:
     version: 2.1.2
     dev: false
 
+  registry.npmjs.org/nanoid/3.3.4:
+    resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/nanoid/-/nanoid-3.3.4.tgz}
+    name: nanoid
+    version: 3.3.4
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+    dev: false
+
+  registry.npmjs.org/node-fetch/2.6.7:
+    resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.7.tgz}
+    name: node-fetch
+    version: 2.6.7
+    engines: {node: 4.x || >=6.0.0}
+    peerDependencies:
+      encoding: ^0.1.0
+    peerDependenciesMeta:
+      encoding:
+        optional: true
+    dependencies:
+      whatwg-url: registry.npmjs.org/whatwg-url/5.0.0
+    dev: false
+
   registry.npmjs.org/node-releases/2.0.5:
     resolution: {integrity: sha512-U9h1NLROZTq9uE1SNffn6WuPDg8icmi3ns4rEl/oTfIle4iLjTliCzgTsbaIFMq/Xn078/lfY/BL0GWZ+psK4Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/node-releases/-/node-releases-2.0.5.tgz}
     name: node-releases
@@ -5788,6 +6021,17 @@ packages:
     name: picomatch
     version: 2.3.1
     engines: {node: '>=8.6'}
+    dev: false
+
+  registry.npmjs.org/postcss/8.4.14:
+    resolution: {integrity: sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/postcss/-/postcss-8.4.14.tgz}
+    name: postcss
+    version: 8.4.14
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: registry.npmjs.org/nanoid/3.3.4
+      picocolors: registry.npmjs.org/picocolors/1.0.0
+      source-map-js: registry.npmjs.org/source-map-js/1.0.2
     dev: false
 
   registry.npmjs.org/pretty-bytes/5.6.0:
@@ -6026,6 +6270,13 @@ packages:
       object-inspect: registry.npmjs.org/object-inspect/1.12.2
     dev: false
 
+  registry.npmjs.org/source-map-js/1.0.2:
+    resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz}
+    name: source-map-js
+    version: 1.0.2
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   registry.npmjs.org/source-map-support/0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz}
     name: source-map-support
@@ -6183,6 +6434,12 @@ packages:
       is-number: registry.npmjs.org/is-number/7.0.0
     dev: false
 
+  registry.npmjs.org/tr46/0.0.3:
+    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz}
+    name: tr46
+    version: 0.0.3
+    dev: false
+
   registry.npmjs.org/tr46/1.0.1:
     resolution: {integrity: sha512-dTpowEjclQ7Kgx5SdBkqRzVhERQXov8/l9Ft9dVM9fmg0W0KQSVaXX9T4i6twCPNtYiZM53lpSSUAwJbFPOHxA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/tr46/-/tr46-1.0.1.tgz}
     name: tr46
@@ -6249,6 +6506,12 @@ packages:
       crypto-random-string: registry.npmjs.org/crypto-random-string/2.0.0
     dev: false
 
+  registry.npmjs.org/universal-user-agent/6.0.0:
+    resolution: {integrity: sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz}
+    name: universal-user-agent
+    version: 6.0.0
+    dev: false
+
   registry.npmjs.org/universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/universalify/-/universalify-2.0.0.tgz}
     name: universalify
@@ -6285,6 +6548,25 @@ packages:
       punycode: registry.npmjs.org/punycode/2.1.1
     dev: false
 
+  registry.npmjs.org/vite-plugin-mkcert/1.7.2:
+    resolution: {integrity: sha512-YEmjMCy2mRs8SXYHQ4TcG0L7xztahnYCCaM+vMGXI9dAjHm/XUOVB9z/I0E5z5p4hraKA31oZynarE41CxoaRA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vite-plugin-mkcert/-/vite-plugin-mkcert-1.7.2.tgz}
+    name: vite-plugin-mkcert
+    version: 1.7.2
+    engines: {node: '>=v16.0.0'}
+    dependencies:
+      '@octokit/rest': registry.npmjs.org/@octokit/rest/18.12.0
+      axios: registry.npmjs.org/axios/0.21.4_debug@4.3.4
+      debug: registry.npmjs.org/debug/4.3.4
+      picocolors: registry.npmjs.org/picocolors/1.0.0
+      vite: registry.npmjs.org/vite/2.9.13
+    transitivePeerDependencies:
+      - encoding
+      - less
+      - sass
+      - stylus
+      - supports-color
+    dev: false
+
   registry.npmjs.org/vite-plugin-pwa/0.12.2_vite@2.9.13:
     resolution: {integrity: sha512-XK2oi1YZkoc1J8fyerNYxyh/yfb+INdrdOW/mOOD5DBLq7jVPxHQuncIhqiREbGOMlY/xMe9CSE7QZ9xIAEf7A==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vite-plugin-pwa/-/vite-plugin-pwa-0.12.2.tgz}
     id: registry.npmjs.org/vite-plugin-pwa/0.12.2
@@ -6305,10 +6587,51 @@ packages:
       - supports-color
     dev: false
 
+  registry.npmjs.org/vite/2.9.13:
+    resolution: {integrity: sha512-AsOBAaT0AD7Mhe8DuK+/kE4aWYFMx/i0ZNi98hJclxb4e0OhQcZYUrvLjIaQ8e59Ui7txcvKMiJC1yftqpQoDw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vite/-/vite-2.9.13.tgz}
+    name: vite
+    version: 2.9.13
+    engines: {node: '>=12.2.0'}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+    dependencies:
+      esbuild: registry.npmjs.org/esbuild/0.14.48
+      postcss: registry.npmjs.org/postcss/8.4.14
+      resolve: registry.npmjs.org/resolve/1.22.1
+      rollup: registry.npmjs.org/rollup/2.75.7
+    optionalDependencies:
+      fsevents: registry.npmjs.org/fsevents/2.3.2
+    dev: false
+
+  registry.npmjs.org/webidl-conversions/3.0.1:
+    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz}
+    name: webidl-conversions
+    version: 3.0.1
+    dev: false
+
   registry.npmjs.org/webidl-conversions/4.0.2:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-4.0.2.tgz}
     name: webidl-conversions
     version: 4.0.2
+    dev: false
+
+  registry.npmjs.org/whatwg-url/5.0.0:
+    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz}
+    name: whatwg-url
+    version: 5.0.0
+    dependencies:
+      tr46: registry.npmjs.org/tr46/0.0.3
+      webidl-conversions: registry.npmjs.org/webidl-conversions/3.0.1
     dev: false
 
   registry.npmjs.org/whatwg-url/7.1.0:

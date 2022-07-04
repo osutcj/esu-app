@@ -34,6 +34,9 @@ export const esuTheme = createTheme({
     googleRed: {
       main: "#ea4335",
     },
+    primary: {
+      main: "#ffcd29",
+    },
   },
 });
 

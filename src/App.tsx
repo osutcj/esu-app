@@ -10,6 +10,8 @@ import MainIndex from "./routes/main/index";
 import useApplicationGuards, {
   AppGuardTo,
 } from "./hooks/use-application-guards";
+import { Feed } from "./routes/main/feed";
+import { Houses } from "./routes/main/houses";
 
 function App() {
   useFixHeight();
@@ -49,6 +51,8 @@ function App() {
         <Route path="notifications" element={<NotificationsConfirm />} />
         <Route path="app" element={<Main />}>
           <Route index element={<MainIndex />} />
+          <Route path="feed" element={<Feed />} />
+          <Route path="houses" element={<Houses />} />
         </Route>
       </Routes>
     </div>
