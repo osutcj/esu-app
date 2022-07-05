@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
+import { isPushSupported } from "../util/is-push-supported";
 
 export enum AppGuardTo {
   Application = "application",
@@ -16,10 +17,14 @@ export default function useApplicationGuards(): [boolean, AppGuardTo] {
 
   useEffect(() => {
     if (!authLoading && user?.email) {
-      if (Notification.permission === "granted") {
-        setTo(AppGuardTo.Application);
+      if (isPushSupported()) {
+        if (Notification.permission === "granted") {
+          setTo(AppGuardTo.Application);
+        } else {
+          setTo(AppGuardTo.NotificationConfirm);
+        }
       } else {
-        setTo(AppGuardTo.NotificationConfirm);
+        setTo(AppGuardTo.Application);
       }
     } else {
       setTo(AppGuardTo.Authenticate);

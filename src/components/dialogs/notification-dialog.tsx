@@ -5,11 +5,12 @@ import {
   DialogContentText,
   DialogActions,
   Button,
-  Paper,
 } from "@mui/material";
+import { isSupported } from "firebase/analytics";
 import { getToken } from "firebase/messaging";
 import { useNavigate } from "react-router-dom";
 import { messaging, vapidKey } from "../../firebase";
+import { isPushSupported } from "../../util/is-push-supported";
 
 interface NotificationDialogProps {
   open: boolean;
@@ -20,7 +21,7 @@ const NotificationDialog = ({ open, setOpen }: NotificationDialogProps) => {
   const navigate = useNavigate();
 
   return (
-    <Paper>
+    <Dialog open={open} onClose={() => setOpen(false)}>
       <DialogTitle>Enable notifications?</DialogTitle>
       <DialogContent>
         <DialogContentText>
@@ -31,16 +32,18 @@ const NotificationDialog = ({ open, setOpen }: NotificationDialogProps) => {
         <Button
           autoFocus
           onClick={async () => {
-            const permission = await Notification.requestPermission();
-            if (permission === "granted") {
-              navigate("/app");
+            if (isPushSupported()) {
+              const permission = await Notification.requestPermission();
+              if (permission === "granted") {
+                navigate("/app");
+              }
             }
           }}
         >
           Turn notifications on
         </Button>
       </DialogActions>
-    </Paper>
+    </Dialog>
   );
 };
 
