@@ -70,7 +70,7 @@ export const schedule = {
       "name": "Cină + foc de tabără"
     },
     {
-      "time": "18:00",
+      "time": "23:00",
       "name": "Sosire cămin"
     },
     {
