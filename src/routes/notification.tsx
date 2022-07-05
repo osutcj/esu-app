@@ -27,19 +27,18 @@ import NotificationDialog from "../components/dialogs/notification-dialog";
 
 const NotificationsConfirm = () => {
   const [value, setValue] = useState("recents");
-  const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (Notification.permission !== "granted") {
-      setOpen(true);
+      // do nothing
     } else {
       navigate("/");
     }
   }, []);
 
-  return <NotificationDialog open={open} setOpen={setOpen} />;
+  return <NotificationDialog open setOpen={() => {}} />;
 };
 
 export default NotificationsConfirm;

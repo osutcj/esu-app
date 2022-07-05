@@ -5,6 +5,7 @@ import {
   DialogContentText,
   DialogActions,
   Button,
+  Paper,
 } from "@mui/material";
 import { getToken } from "firebase/messaging";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +20,7 @@ const NotificationDialog = ({ open, setOpen }: NotificationDialogProps) => {
   const navigate = useNavigate();
 
   return (
-    <Dialog open={open} onClose={() => setOpen(false)}>
+    <Paper>
       <DialogTitle>Enable notifications?</DialogTitle>
       <DialogContent>
         <DialogContentText>
@@ -39,7 +40,7 @@ const NotificationDialog = ({ open, setOpen }: NotificationDialogProps) => {
           Turn notifications on
         </Button>
       </DialogActions>
-    </Dialog>
+    </Paper>
   );
 };
 
