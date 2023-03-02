@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
-import { messaging, vapidKey } from "./firebase";
+import {  messaging, vapidKey } from "./firebase";
 import { useFixHeight } from "./hooks/use-fix-height";
+import { doc, onSnapshot, collection, query, where, setDoc, getDoc } from "firebase/firestore";
 import { useToken } from "react-firebase-hooks/messaging";
 import Login from "./routes/login";
 import NotificationsConfirm from "./routes/notification";
@@ -15,7 +16,6 @@ import { Houses } from "./routes/main/houses";
 
 function App() {
   useFixHeight();
-
   const [appGuardsLoading, appGuardTo] = useApplicationGuards();
 
   useEffect(() => {
@@ -24,11 +24,7 @@ function App() {
     }
   }, [appGuardsLoading, appGuardTo]);
 
-  function appGuardsLoaded(elem: JSX.Element) {
-    if (appGuardsLoading) return <></>;
-    return elem;
-  }
-
+  
   return (
     <div className="w-screen flex flex-col h-screen-fixed">
       <Routes>

@@ -11,7 +11,6 @@ export enum AppGuardTo {
 }
 
 export default function useApplicationGuards(): [boolean, AppGuardTo] {
-  const [loading, setLoading] = useState(true);
   const [to, setTo] = useState<AppGuardTo>(AppGuardTo.NotYetAvailable);
   const [user, authLoading, error] = useAuthState(auth);
 
@@ -30,6 +29,5 @@ export default function useApplicationGuards(): [boolean, AppGuardTo] {
       setTo(AppGuardTo.Authenticate);
     }
   }, [authLoading, user, error]);
-
-  return [loading, to];
+  return [authLoading, to];
 }

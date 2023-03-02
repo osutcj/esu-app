@@ -4,14 +4,11 @@ import { Provider } from "react-redux";
 import store from "./store";
 import "uno.css";
 import "@unocss/reset/tailwind.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter} from "react-router-dom";
 import App from "./App";
-import Login from "./routes/login";
 import "./index.css";
-import Main from "./routes/main";
-import MainIndex from "./routes/main/index";
 import { createTheme, ThemeProvider } from "@mui/material";
-import NotificationConfirm from "./routes/notification";
+
 //@ts-ignore
 import { registerSW } from "virtual:pwa-register";
 registerSW({ immediate: true });
