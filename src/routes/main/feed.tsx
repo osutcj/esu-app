@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Feed = () => {
   return (
     <div className="flex flex-col items-center gap-6 pb-64 pt-16 bg-slate-9 h-full">

@@ -8,13 +8,11 @@ import { BrowserRouter} from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import { createTheme, ThemeProvider } from "@mui/material";
-
 //@ts-ignore
 import { registerSW } from "virtual:pwa-register";
 registerSW({ immediate: true });
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
-
 declare module "@mui/material/styles" {
   interface Theme {}
 

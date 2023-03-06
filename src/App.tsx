@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
-import {  messaging, vapidKey } from "./firebase";
+import { useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { useFixHeight } from "./hooks/use-fix-height";
-import { doc, onSnapshot, collection, query, where, setDoc, getDoc } from "firebase/firestore";
-import { useToken } from "react-firebase-hooks/messaging";
 import Login from "./routes/login";
 import NotificationsConfirm from "./routes/notification";
 import Main from "./routes/main";

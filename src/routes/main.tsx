@@ -18,28 +18,17 @@ import RestoreIcon from "@mui/icons-material/Restore";
 import FeedIcon from "@mui/icons-material/Feed";
 import HouseIcon from "@mui/icons-material/House";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarIcon from "@mui/icons-material/CalendarToday";
 import {
-  BrowserRouter,
   NavLink,
   Outlet,
-  Route,
-  Routes,
-  useNavigate,
 } from "react-router-dom";
-import Login from "../routes/login";
 import { useEffect, useState } from "react";
-import { getToken } from "firebase/messaging";
 import { messaging, onMessageListener, vapidKey } from "../firebase";
-import NotificationDialog from "../components/dialogs/notification-dialog";
 import { useToken } from "react-firebase-hooks/messaging";
-import TouchRipple from "@mui/material/ButtonBase/TouchRipple";
 
 const Main = () => {
   const [value, setValue] = useState("recents");
-  const [open, setOpen] = useState(false);
-
   const [token, loading, error] = useToken(messaging, vapidKey);
 
   useEffect(() => {
