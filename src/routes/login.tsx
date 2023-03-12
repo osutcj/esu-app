@@ -1,16 +1,14 @@
 import { Button } from "@mui/material";
 import { useEffect } from "react";
-import {
-  useAuthState,
-  useSignInWithGoogle,
-} from "react-firebase-hooks/auth";
+import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import GoogleIcon from "@mui/icons-material/Google";
 import { auth } from "../firebase";
 import esulogo from "../static/ESULogo.svg";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
   const [user, loading, error] = useAuthState(auth);
 
   const navigate = useNavigate();
