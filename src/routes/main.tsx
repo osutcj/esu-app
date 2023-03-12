@@ -19,17 +19,21 @@ import FeedIcon from "@mui/icons-material/Feed";
 import HouseIcon from "@mui/icons-material/House";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarToday";
-import {
-  NavLink,
-  Outlet,
-} from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { messaging, onMessageListener, vapidKey } from "../firebase";
 import { useToken } from "react-firebase-hooks/messaging";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
 
 const Main = () => {
   const [value, setValue] = useState("recents");
   const [token, loading, error] = useToken(messaging, vapidKey);
+  const [authState] = useAuthState(auth);
+
+  useEffect(() => {
+    //do stuff with user data (authState)
+  }, [authState]); // Trebuie pus authState in dependency array ca sa se repete query-ul cand vin datele despre user de la firebase
 
   useEffect(() => {
     if (!loading) {

@@ -1,4 +1,4 @@
-import { firestore } from '../util/database';
+import { firestore } from "../util/database";
 import {
   collection,
   addDoc,
@@ -7,20 +7,15 @@ import {
   getDocs,
   updateDoc,
   deleteDoc,
-} from 'firebase/firestore';
+  setDoc,
+} from "firebase/firestore";
+import { UserType } from "../types/users";
 
-const COLL = "users"
-export type UserType = {
-    id: string,
-    house: string,
-    score: number
-}
+const COLL = "users";
 
 const UserService = {
   get: async () => {
-    const querySnapshot = await getDocs(
-      collection(firestore, COLL)
-    );
+    const querySnapshot = await getDocs(collection(firestore, COLL));
 
     const userData: UserType[] = [];
     querySnapshot.forEach((doc) => {
@@ -35,9 +30,9 @@ const UserService = {
   },
 
   getById: async (id: string | undefined) => {
-    if (id == undefined){
-      console.log("Could not retrive user")
-      return
+    if (id == undefined) {
+      console.log("Could not retrive user");
+      return;
     }
     const querySnapshot = await getDoc(doc(firestore, COLL, id));
 
@@ -45,8 +40,13 @@ const UserService = {
   },
 
   insert: async (user: UserType) => {
-    const docRef = await addDoc(collection(firestore, COLL), user);
-    return docRef;
+    const userDoc = await UserService.getById(user.id);
+
+    if (!userDoc) {
+      const docRef = await setDoc(doc(firestore, COLL, user.id), user);
+      return docRef;
+    }
+    return userDoc;
   },
 
   update: async (id: string, user: UserType | any) => {
