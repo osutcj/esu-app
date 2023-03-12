@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <div className="w-screen flex flex-col gap-16 items-center overflow-x-hidden">
-      <img src={esulogo} className="w-48 mt-16" />
+      <img alt="esu-logo" src={esulogo} className="w-48 mt-16" />
 
       <div className="text-4xl w-full text-center font-bold">
         Engineering Summer University
