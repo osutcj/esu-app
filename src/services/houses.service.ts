@@ -13,7 +13,10 @@ const COLL = "houses"
 export type HouseType = {
     id: string,
     name: string,
-    score: number
+    score: number,
+    code:number,
+    users:string[],
+    telefon:number[]
 }
 
 const HouseService = {
