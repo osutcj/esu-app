@@ -21,7 +21,6 @@ function App() {
     }
   }, [appGuardsLoading, appGuardTo]);
 
-  
   return (
     <div className="w-screen flex flex-col h-screen-fixed">
       <Routes>
