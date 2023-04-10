@@ -1,4 +1,6 @@
+import { Icon, Paper, SvgIcon } from "@mui/material";
 import { schedule } from "../../data/events";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
 const MainIndex = () => {
   const today = new Date();
@@ -36,28 +38,51 @@ const MainIndex = () => {
   });
 
   return (
-    <div className="flex flex-col items-center gap-6 pb-64 pt-16 bg-slate-9">
-      <h1 className="self-start ml-5 text-5xl font-extrabold text-slate-1">
-        {" "}
-        Schedule{" "}
-      </h1>
-      {filterByDay.map(([day, events]) => {
-        return (
-          <div className="w-90% bg-gradient-to-tr from-slate-800 to-slate-900 text-slate-2 rounded-3xl p-8">
-            <h2 className="text-3xl mb-6 font-bold">{day}</h2>
-            {events.map((event) => {
-              return (
-                <div className="flex flex-col gap-2">
-                  <div className="flex flex-row gap-2">
-                    <div className="flex-1">{event.name}</div>
-                    <div className="">{event.time}</div>
-                  </div>
-                </div>
-              );
-            })}
+    <div className="flex flex-col items-center pb-64 bg-gray-1">
+      <Paper
+        sx={{
+          position: "fixed",
+          left: 0,
+          right: 0,
+          top: 0,
+        }}
+      >
+        <div className="flex items-center justify-center justify-between w-100% bg-white">
+          <div className="p-5">
+            <text className="text-2xl font-bold">Schedule</text>
           </div>
-        );
-      })}
+          <div className="">
+            <PermIdentityIcon sx={{ fontSize: 35 }} className="mr-4" />
+          </div>
+        </div>
+      </Paper>
+      <div className="flex-col flex items-center pt-4 mt-20">
+        {filterByDay.map(([day, events]) => {
+          return (
+            <div className="flex flex-col w-90% pb-4">
+              <div className="pb-1 pl-2">
+                <text className=" font-bold text-black">{day}</text>
+              </div>
+              {events.map((event) => {
+                return (
+                  <div className="flex flex-row justify-between items-center pb-2">
+                    <div>
+                      <div className="bg-gray-3 rounded-3xl pl-2.5 pr-2.5 pt-1.5 pb-1.5 ">
+                        <text className="font-bold">{event.time}</text>
+                      </div>
+                    </div>
+                    <div className="rounded-lg bg-gradient-to-r from-yellow-400 to-purple-500 p-3.5 w-75% pl-2">
+                      <text className="font-bold text-gray-800 text-lg">
+                        {event.name}
+                      </text>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
