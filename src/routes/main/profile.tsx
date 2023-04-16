@@ -4,21 +4,19 @@ import UserService from "../../services/users.service";
 import { db } from "../../util/database";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
-import { DocumentData } from "firebase/firestore";
 
-export const Feed = () => {
+const ProfileScreen = () => {
   const [user, setUser] = useState<UserType>();
   const [authState] = useAuthState(auth);
 
   useEffect(() => {
-    UserService.getById(authState?.uid)
-    .then((response: DocumentData | undefined) => {
-      if (response?.data != undefined) { 
-        setUser({id: response.data.id, house: response.data.house, score: response.data.score} as UserType);
-      }
-    });
-  }, [authState, user]);
+    const fetchUser = async () => {
+      const userGet = await UserService.getById(authState?.uid);
+      setUser({...(userGet?.data as UserType)});
+    };
 
+    fetchUser();
+  }, []);
 
   const [image, setImage] = useState<File | null>(null);
   const [imageUrl, setImageUrl] = useState<string>("");
@@ -37,8 +35,6 @@ export const Feed = () => {
     //   const url = await fileRef.getDownloadURL();
     //   setImageUrl(url);
     console.log(image)
-    console.log(user);
-
     }
   };
 
@@ -56,3 +52,5 @@ export const Feed = () => {
     </div>
   );
 };
+
+export default ProfileScreen;

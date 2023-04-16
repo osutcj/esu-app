@@ -25,6 +25,9 @@ import { messaging, onMessageListener, vapidKey } from "../firebase";
 import { useToken } from "react-firebase-hooks/messaging";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
+import UserService from "../services/users.service";
+import { DocumentData } from "firebase/firestore";
+import { UserType } from "../types/users";
 
 const Main = () => {
   const [value, setValue] = useState("recents");
@@ -33,13 +36,15 @@ const Main = () => {
 
   useEffect(() => {
     //do stuff with user data (authState)
-  }, [authState]); // Trebuie pus authState in dependency array ca sa se repete query-ul cand vin datele despre user de la firebase
+    UserService.getById(authState?.uid)
+    .then((response: DocumentData | undefined) => {
+      if (response?.data == undefined) {
+        UserService.insert({id: authState?.uid, house: 'unassigned', score: 0} as UserType);
+      }
+    });
 
-  useEffect(() => {
-    if (!loading) {
-      console.log(token);
-    }
-  }, [loading, token]);
+
+  }, [authState]); // Trebuie pus authState in dependency array ca sa se repete query-ul cand vin datele despre user de la firebase
 
   const [showNotification, setShowNotification] = useState(false);
   const [notification, setNotification] = useState("");

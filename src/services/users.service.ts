@@ -1,7 +1,6 @@
 import { firestore } from "../util/database";
 import {
   collection,
-  addDoc,
   getDoc,
   doc,
   getDocs,

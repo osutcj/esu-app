@@ -8,10 +8,22 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 export const Houses = () => {
   const [houses, setHouses] = useState<HouseType[]>([]);
 
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [isFlipped, setIsFlipped] = useState<boolean[]>([]);
 
-  const handleClick = () => {
-    setIsFlipped(!isFlipped);
+  const handleClick = (index: number) => {
+
+    setIsFlipped((prevState) => {
+      let newState = [...prevState];
+      let state = newState[index];
+      if (state) {
+        newState[index] = false;
+      }
+      else {
+        newState[index] = true;
+      }
+
+      return newState;
+    });
   };
 
   useEffect(() => {
@@ -50,9 +62,10 @@ export const Houses = () => {
           houses.map((house, index) => {
             return (
               <div key={index}>
-                <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+                <ReactCardFlip isFlipped={isFlipped[index]} flipDirection="vertical">
                   <div
-                    onClick={handleClick}
+                    onClick={() =>handleClick(index)}
+                    id = {index.toString()}
                     className="rounded-2xl bg-gradient-to-r from-yellow-600 via-yellow-600 to-purple-700 p-1 mt-6 ml-5 mr-5 "
                   >
                     <div className="flex">
@@ -73,7 +86,8 @@ export const Houses = () => {
                     </a>
                   </div>
                   <div
-                    onClick={handleClick}
+                    onClick={() => handleClick(index)}
+                    id = {index.toString()}
                     className="rounded-2xl bg-gradient-to-r from-yellow-600 via-yellow-600 to-purple-700 p-1 shadow-xl mr-5 ml-5 mt-6"
                   >
                     <h4 className="block rounded-xl bg-white p-4 sm:p-6 lg:p-8">
