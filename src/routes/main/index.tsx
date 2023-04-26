@@ -39,23 +39,6 @@ const MainIndex = () => {
 
   return (
     <div className="flex flex-col items-center pb-64 bg-gray-1">
-      <Paper
-        sx={{
-          position: "fixed",
-          left: 0,
-          right: 0,
-          top: 0,
-        }}
-      >
-        <div className="flex items-center justify-center justify-between w-100% bg-white">
-          <div className="p-5">
-            <text className="text-2xl font-bold">Schedule</text>
-          </div>
-          <div className="">
-            <PermIdentityIcon sx={{ fontSize: 35 }} className="mr-4" />
-          </div>
-        </div>
-      </Paper>
       <div className="flex-col flex items-center pt-4 mt-20">
         {filterByDay.map(([day, events]) => {
           return (
