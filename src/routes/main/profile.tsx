@@ -12,7 +12,7 @@ const ProfileScreen = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const userGet = await UserService.getById(authState?.uid);
-      setUser({...(userGet?.data as UserType)});
+      setUser({ ...(userGet?.data as UserType) });
     };
 
     fetchUser();
@@ -29,12 +29,12 @@ const ProfileScreen = () => {
 
   const handleImageUpload = async () => {
     if (image) {
-    //   const storageRef = db.ref();
-    //   const fileRef = storageRef.child(image.name);
-    //   await fileRef.put(image);
-    //   const url = await fileRef.getDownloadURL();
-    //   setImageUrl(url);
-    console.log(image)
+      //   const storageRef = db.ref();
+      //   const fileRef = storageRef.child(image.name);
+      //   await fileRef.put(image);
+      //   const url = await fileRef.getDownloadURL();
+      //   setImageUrl(url);
+      console.log(image);
     }
   };
 

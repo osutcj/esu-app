@@ -10,6 +10,8 @@ import useApplicationGuards, {
 } from "./hooks/use-application-guards";
 import { Feed } from "./routes/main/feed";
 import { Houses } from "./routes/main/houses";
+import { Links } from "./routes/main/links";
+import ProfileScreen from "./routes/main/profile";
 
 function App() {
   useFixHeight();
@@ -44,7 +46,9 @@ function App() {
         <Route path="app" element={<Main />}>
           <Route index element={<MainIndex />} />
           <Route path="feed" element={<Feed />} />
+          <Route path="links" element={<Links />} />
           <Route path="houses" element={<Houses />} />
+          <Route path="profile" element={<ProfileScreen />} />
         </Route>
       </Routes>
     </div>

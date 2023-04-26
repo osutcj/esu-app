@@ -28,22 +28,27 @@ import { auth } from "../firebase";
 import UserService from "../services/users.service";
 import { DocumentData } from "firebase/firestore";
 import { UserType } from "../types/users";
+import LinkIcon from "@mui/icons-material/Link";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
 const Main = () => {
-  const [value, setValue] = useState("recents");
+  const [value, setValue] = useState(0);
   const [token, loading, error] = useToken(messaging, vapidKey);
   const [authState] = useAuthState(auth);
-
   useEffect(() => {
+    console.log("aw");
     //do stuff with user data (authState)
-    UserService.getById(authState?.uid)
-    .then((response: DocumentData | undefined) => {
-      if (response?.data == undefined) {
-        UserService.insert({id: authState?.uid, house: 'unassigned', score: 0} as UserType);
+    UserService.getById(authState?.uid).then(
+      (response: DocumentData | undefined) => {
+        if (response?.data == undefined) {
+          UserService.insert({
+            id: authState?.uid,
+            house: "unassigned",
+            score: 0,
+          } as UserType);
+        }
       }
-    });
-
-
+    );
   }, [authState]); // Trebuie pus authState in dependency array ca sa se repete query-ul cand vin datele despre user de la firebase
 
   const [showNotification, setShowNotification] = useState(false);
@@ -57,11 +62,33 @@ const Main = () => {
     })
     .catch(() => {});
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    console.log("a");
+  };
   return (
     <>
       <div className="flex-1 flex flex-col">
         <Outlet />
       </div>
+      <Paper
+        sx={{
+          position: "fixed",
+          left: 0,
+          right: 0,
+          top: 0,
+        }}
+        elevation={3}
+      >
+        <div className="flex items-center justify-center justify-between w-100% bg-white">
+          <div className="p-5">
+            <text className="text-2xl font-bold">{value}</text>
+          </div>
+          <div className="">
+            <PermIdentityIcon sx={{ fontSize: 35 }} className="mr-4" />
+          </div>
+        </div>
+      </Paper>
       <Paper
         sx={{
           position: "fixed",
@@ -75,9 +102,7 @@ const Main = () => {
       >
         <BottomNavigation
           value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
+          onChange={handleChange}
           sx={{
             justifyContent: "space-around",
             WebkitTapHighlightColor: "transparent",
@@ -141,6 +166,28 @@ const Main = () => {
                     sx={{ width: "100%", height: "100%" }}
                   >
                     <HouseIcon
+                      className="transition-colors"
+                      sx={{ color: isActive ? "#ffcd29" : "default" }}
+                    />
+                  </ButtonBase>
+                )}
+              </NavLink>
+            )}
+          ></BottomNavigationAction>
+          <BottomNavigationAction
+            label="Recents"
+            component={() => (
+              <NavLink
+                className="w-1/3 flex items-center justify-center"
+                to="/app/links"
+              >
+                {({ isActive }) => (
+                  <ButtonBase
+                    className="rounded-0"
+                    onClick={() => {}}
+                    sx={{ width: "100%", height: "100%" }}
+                  >
+                    <LinkIcon
                       className="transition-colors"
                       sx={{ color: isActive ? "#ffcd29" : "default" }}
                     />
