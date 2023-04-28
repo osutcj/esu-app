@@ -38,13 +38,24 @@ const MainIndex = () => {
   });
 
   return (
-    <div className="flex flex-col items-center pb-64 bg-gray-1">
-      <div className="flex-col flex items-center pt-4 mt-20">
+    <div className="flex flex-col items-center pb-64 bg-#333333">
+      <div className=" bg-#1A1A1A w-85 mt-20  rounded-xl text-10 font-bold justify-center flex p-2">
+        <div
+          className="color-white "
+          style={{
+            alignSelf: "center",
+          }}
+        >
+          SCHEDULE
+        </div>
+      </div>
+
+      <div className="flex-col flex items-center pt-4">
         {filterByDay.map(([day, events]) => {
           return (
             <div className="flex flex-col w-90% pb-4">
               <div className="pb-1 pl-2">
-                <text className=" font-bold text-black">{day}</text>
+                <text className=" font-bold text-white">{day}</text>
               </div>
               {events.map((event) => {
                 return (
