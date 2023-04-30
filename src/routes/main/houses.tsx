@@ -37,8 +37,18 @@ export const Houses = () => {
   };
 
   return (
-    <div className="flex  flex-col items-center gap-6 pb-64 pt-16 bg-gray-2 h-full">
-      <h1 className="self-start text-slate-1 w-100% pt-8">
+    <div className="flex  flex-col items-center  pb-64 bg-#333333 h-full">
+      <div className=" bg-#1A1A1A w-85 mt-20  rounded-xl text-10 font-bold justify-center flex p-2">
+        <div
+          className="color-white "
+          style={{
+            alignSelf: "center",
+          }}
+        >
+          GRUPE
+        </div>
+      </div>
+      <h1 className="self-start text-slate-1 w-100% ">
         {houses.length > 0 &&
           houses.map((house, index) => {
             return (
@@ -56,17 +66,15 @@ export const Houses = () => {
                       <text className="ml-2 font-bold text-2xl flex-1 mb-1">
                         {house.name}
                       </text>
-                      <text className="mr-2 font-bold text-2xl">
-                        {house.score}
-                      </text>
+                      <h6 className="mr-2 font-bold text-2xl">{house.score}</h6>
                     </div>
-                    <a className="block rounded-xl bg-white p-4 sm:p-6 lg:p-8">
+                    <a className="block rounded-xl bg-#333333 p-4 sm:p-6 lg:p-8">
                       <div>
-                        <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
+                        <h3 className="text-lg font-bold text-white sm:text-xl">
                           {house.code}
                         </h3>
                       </div>
-                      <p className="mt-2 text-sm text-gray-500">Lore</p>
+                      <p className="mt-2 text-sm text-white">Lore</p>
                     </a>
                   </div>
                   <div

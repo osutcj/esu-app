@@ -39,7 +39,7 @@ const ProfileScreen = () => {
   };
 
   return (
-    <div>
+    <div className="flex  flex-col items-center  pb-64 bg-#333333 h-full">
       <h1>{user?.id}'s Profile</h1>
       {/* <img src={imageUrl || user.profileImageUrl} alt="Profile" /> */}
       <input type="file" onChange={handleImageChange} />

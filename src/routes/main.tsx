@@ -30,6 +30,7 @@ import { DocumentData } from "firebase/firestore";
 import { UserType } from "../types/users";
 import LinkIcon from "@mui/icons-material/Link";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import logo from "../static/ESUlogomare.png";
 
 const Main = () => {
   const [value, setValue] = useState(0);
@@ -77,15 +78,33 @@ const Main = () => {
           left: 0,
           right: 0,
           top: 0,
+          borderBottomLeftRadius: 15,
+          borderBottomRightRadius: 15,
         }}
         elevation={3}
       >
-        <div className="flex items-center justify-center justify-between w-100% bg-white">
+        <div
+          className="flex items-center justify-center justify-between w-100% "
+          style={{
+            borderBottomLeftRadius: 10,
+            borderBottomRightRadius: 10,
+            backgroundColor: "#1A1A1A",
+          }}
+        >
           <div className="p-5">
-            <text className="text-2xl font-bold">{value}</text>
+            <img src={logo} className="w-25"></img>
           </div>
           <div className="">
-            <PermIdentityIcon sx={{ fontSize: 35 }} className="mr-4" />
+            <PermIdentityIcon
+              sx={{
+                fontSize: 40,
+                color: "white",
+                backgroundColor: "#333333",
+                borderRadius: 10,
+                padding: 1,
+              }}
+              className="mr-4"
+            />
           </div>
         </div>
       </Paper>
@@ -93,10 +112,11 @@ const Main = () => {
         sx={{
           position: "fixed",
           bottom: 15,
-          left: 120,
-          right: 120,
+          left: 110,
+          right: 110,
           opacity: "80%",
           borderRadius: 15,
+          backgroundColor: "#1A1A1A",
         }}
         elevation={3}
       >
@@ -106,7 +126,8 @@ const Main = () => {
           sx={{
             justifyContent: "space-around",
             WebkitTapHighlightColor: "transparent",
-            borderRadius: 15,
+            borderRadius: 10,
+            backgroundColor: "#1A1A1A",
           }}
         >
           <BottomNavigationAction
@@ -122,9 +143,7 @@ const Main = () => {
                     onClick={() => {}}
                     sx={{ width: "100%", height: "100%" }}
                   >
-                    <FeedIcon
-                      sx={{ color: isActive ? "#ffcd29" : "default" }}
-                    />
+                    <FeedIcon sx={{ color: isActive ? "#ffcd29" : "white" }} />
                   </ButtonBase>
                 )}
               </NavLink>
@@ -145,7 +164,7 @@ const Main = () => {
                     sx={{ width: "100%", height: "100%" }}
                   >
                     <CalendarIcon
-                      sx={{ color: isActive ? "#ffcd29" : "default" }}
+                      sx={{ color: isActive ? "#ffcd29" : "white" }}
                     />
                   </ButtonBase>
                 )}
@@ -167,7 +186,7 @@ const Main = () => {
                   >
                     <HouseIcon
                       className="transition-colors"
-                      sx={{ color: isActive ? "#ffcd29" : "default" }}
+                      sx={{ color: isActive ? "#ffcd29" : "white" }}
                     />
                   </ButtonBase>
                 )}
@@ -189,7 +208,7 @@ const Main = () => {
                   >
                     <LinkIcon
                       className="transition-colors"
-                      sx={{ color: isActive ? "#ffcd29" : "default" }}
+                      sx={{ color: isActive ? "#ffcd29" : "white" }}
                     />
                   </ButtonBase>
                 )}
