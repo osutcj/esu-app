@@ -62,7 +62,7 @@ const Main = () => {
     })
     .catch(() => {});
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: any, newValue: any) => {
     setValue(newValue);
     console.log("a");
   };
