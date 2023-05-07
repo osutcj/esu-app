@@ -20,7 +20,7 @@ import HouseIcon from "@mui/icons-material/House";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarToday";
 import { NavLink, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { messaging, onMessageListener, vapidKey } from "../firebase";
 import { useToken } from "react-firebase-hooks/messaging";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -63,9 +63,8 @@ const Main = () => {
     })
     .catch(() => {});
 
-  const handleChange = (event: any, newValue: any) => {
+  const handleChange = (newValue: any) => {
     setValue(newValue);
-    console.log("a");
   };
   return (
     <>
