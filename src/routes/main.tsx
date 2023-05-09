@@ -31,6 +31,8 @@ import { UserType } from "../types/users";
 import LinkIcon from "@mui/icons-material/Link";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import logo from "../static/ESUlogomare.png";
+import { firestore } from "../util/database";
+import PostService, { PostType } from "../services/posts.service";
 
 const Main = () => {
   const [value, setValue] = useState(0);
@@ -63,10 +65,11 @@ const Main = () => {
     })
     .catch(() => {});
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: any, newValue: any) => {
     setValue(newValue);
     console.log("a");
   };
+
   return (
     <>
       <div className="flex-1 flex flex-col">
@@ -94,6 +97,7 @@ const Main = () => {
           <div className="p-5">
             <img src={logo} className="w-25"></img>
           </div>
+
           <div className="">
             <PermIdentityIcon
               sx={{

@@ -37,8 +37,8 @@ export const Houses = () => {
   };
 
   return (
-    <div className="flex  flex-col items-center  pb-64 bg-#333333 h-full">
-      <div className=" bg-#1A1A1A w-85 mt-20  rounded-xl text-10 font-bold justify-center flex p-2">
+    <div className="flex flex-col items-center pb-64 bg-#333333 h-full">
+      <div className=" bg-#1A1A1A w-85 mt-20 h-20 rounded-xl text-10 font-bold justify-center flex p-2">
         <div
           className="color-white "
           style={{
@@ -48,7 +48,7 @@ export const Houses = () => {
           GRUPE
         </div>
       </div>
-      <h1 className="self-start text-slate-1 w-100% ">
+      <h1 className="text-slate-1 w-100% ">
         {houses.length > 0 &&
           houses.map((house, index) => {
             return (
@@ -68,7 +68,7 @@ export const Houses = () => {
                       </text>
                       <h6 className="mr-2 font-bold text-2xl">{house.score}</h6>
                     </div>
-                    <a className="block rounded-xl bg-#333333 p-4 sm:p-6 lg:p-8">
+                    <a className="block rounded-xl bg-#333333 p-4  ">
                       <div>
                         <h3 className="text-lg font-bold text-white sm:text-xl">
                           {house.code}
@@ -80,7 +80,7 @@ export const Houses = () => {
                   <div
                     onClick={() => handleClick(index)}
                     id={index.toString()}
-                    className="rounded-2xl bg-gradient-to-r from-yellow-600 via-yellow-600 to-purple-700 p-1 shadow-xl mr-5 ml-5 mt-6"
+                    className="rounded-2xl bg-gradient-to-r from-yellow-600 via-yellow-600 to-purple-700 p-1  mr-5 ml-5 mt-6"
                   >
                     <h4 className="block rounded-xl bg-white p-4 sm:p-6 lg:p-8">
                       <div className="">
