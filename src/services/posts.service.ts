@@ -9,29 +9,28 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 
-const COLL = "houses";
-export type HouseType = {
-  id: string;
-  name: string;
-  score: number;
-  code: number;
-  users: string[];
-  telefon: number[];
+const COLL = "posts";
+
+export type PostType = {
+  id?: string;
+  message: string;
+  time: string;
 };
 
-const HouseService = {
+const PostService = {
   get: async () => {
     const querySnapshot = await getDocs(collection(firestore, COLL));
 
-    const housesData: HouseType[] = [];
+    const postsData: PostType[] = [];
     querySnapshot.forEach((doc) => {
-      const data = doc.data() as HouseType;
-      housesData.push({
+      const data = doc.data() as PostType;
+      postsData.push({
         ...data,
         id: doc.id,
       });
     });
-    return housesData;
+
+    return postsData;
   },
 
   getById: async (id: string) => {
@@ -40,14 +39,14 @@ const HouseService = {
     return querySnapshot.data();
   },
 
-  insert: async (game: HouseType) => {
+  insert: async (game: PostType) => {
     const docRef = await addDoc(collection(firestore, COLL), game);
     return docRef;
   },
 
-  update: async (id: string, game: HouseType | any) => {
-    const houseRef = doc(firestore, COLL, id);
-    await updateDoc(houseRef, game);
+  update: async (id: string, game: PostType | any) => {
+    const postRef = doc(firestore, COLL, id);
+    await updateDoc(postRef, game);
   },
 
   remove: async (id: string) => {
@@ -55,4 +54,4 @@ const HouseService = {
   },
 };
 
-export default HouseService;
+export default PostService;
