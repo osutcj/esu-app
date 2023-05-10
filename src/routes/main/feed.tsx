@@ -17,6 +17,8 @@ export const Feed = () => {
   const [user, setUser] = useState<UserType>();
   const [authState] = useAuthState(auth);
   const [post, setPost] = useState<PostType[]>([]);
+  const [postUploaded, setPostUploaded] = useState(false);
+
   useEffect(() => {
     UserService.getById(authState?.uid).then(
       (response: DocumentData | undefined) => {
@@ -65,15 +67,21 @@ export const Feed = () => {
     PostService.insert({
       message: message,
       time: time,
-    }).catch((error) => {
+    }).then(res => {
+      setPostUploaded(prev => !prev);
+      console.log("POST ADDED");
+    })
+    .catch((error) => {
       alert(error.message);
     });
-    console.log("POST ADDED");
     setModal(false);
   };
+
   useEffect(() => {
+    console.log('test1');
     getAllPosts();
-  }, [handlePost]); //AICI CRED CA E BAI :))))
+  }, [postUploaded]); //AICI CRED CA E BAI :))))
+
   return (
     <div className="flex  flex-col items-center  pb-64 bg-#333333 h-full ">
       <div className=" bg-#1A1A1A w-85 mt-20 h-20 rounded-xl text-10 font-bold justify-center items-center flex p-2">
@@ -135,7 +143,7 @@ export const Feed = () => {
           <div
             className="bg-blue-300 w-20 mt-6 h-10 items-center flex justify-center "
             style={{ borderRadius: 10 }}
-            onClick={handlePost}
+            onClick={() => handlePost()}
           >
             Post
           </div>
