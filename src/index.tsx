@@ -1,5 +1,5 @@
 import { Icon, Paper, SvgIcon } from "@mui/material";
-import { schedule } from "../../data/events";
+import { schedule } from "./data/events";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
 const MainIndex = () => {
